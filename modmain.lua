@@ -87,23 +87,6 @@ AddPlayerPostInit(function(inst)
 	end
 end)
 
-local ZERO = GLOBAL.Action()
-ZERO.str = "Zero"
-ZERO.id = "ZERO"
-ZERO.fn = function(act)
-	local silent = true
-    if act.target.transformed then 
-        act.target.AnimState:SetBuild("zero")
-        act.target.Transform:SetScale(1,1,1)
-        act.target.transformed = false
-    else
-        act.target.AnimState:SetBuild("clownpiece")
-        act.target.Transform:SetScale(1,1,1)
-        act.target.transformed = true
-    end
-    return true
-end
-
  function _G.IsDontStarveTogether()
 return kleifileexists("scripts/networking.lua") and true or false
 end
@@ -127,5 +110,3 @@ AddMinimapAtlas("images/map_icons/zero.xml")
 
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("zero", "FEMALE")
-
-AddAction(ZERO)

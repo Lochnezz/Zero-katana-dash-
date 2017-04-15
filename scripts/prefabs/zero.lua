@@ -16,11 +16,15 @@ local start_inv = {
 local function OnKeyPressed(inst, data)
     if data.inst == ThePlayer then
         if data.key == KEY_Z then
-            if TheWorld.ismastersim then
-                BufferedAction(inst, inst, ACTIONS.ZERO):Do()
-            else
-                SendRPCToServer(RPC.DoWidgetButtonAction, ACTIONS.ZERO.code, inst, ACTIONS.ZERO.mod_name)
-            end
+            if inst.transformed then 
+				inst.AnimState:SetBuild("zero")
+				inst.Transform:SetScale(1,1,1)
+				inst.transformed = false
+			else
+				inst.AnimState:SetBuild("clownpiece")
+				inst.Transform:SetScale(1,1,1)
+				inst.transformed = true
+			end
         end
     end
 end
