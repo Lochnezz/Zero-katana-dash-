@@ -97,7 +97,7 @@ ZERO.fn = function(act)
         act.target.Transform:SetScale(1,1,1)
         act.target.transformed = false
     else
-        act.target.AnimState:SetBuild("zero")
+        act.target.AnimState:SetBuild("clownpiece")
         act.target.Transform:SetScale(1,1,1)
         act.target.transformed = true
     end
@@ -128,3 +128,4 @@ AddMinimapAtlas("images/map_icons/zero.xml")
 -- Add mod character to mod character list. Also specify a gender. Possible genders are MALE, FEMALE, ROBOT, NEUTRAL, and PLURAL.
 AddModCharacter("zero", "FEMALE")
 
+AddAction(ZERO)

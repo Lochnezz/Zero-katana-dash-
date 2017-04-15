@@ -4,6 +4,7 @@ local MakePlayerCharacter = require "prefabs/player_common"
 
 local assets = {
     Asset("SCRIPT", "scripts/prefabs/player_common.lua"),
+	Asset( "ANIM", "anim/clownpiece.zip" ),
 }
 local prefabs = {}
 
@@ -52,6 +53,11 @@ end
 local common_postinit = function(inst) 
 	-- Minimap icon
 	inst.MiniMapEntity:SetIcon( "zero.tex" )
+	
+	local transformed = false
+	
+	inst:AddComponent("keyhandler")
+    inst:ListenForEvent("keypressed", OnKeyPressed)
 end
 
 -- This initializes for the server only. Components are added here.
